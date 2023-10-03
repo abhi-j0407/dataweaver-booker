@@ -1,7 +1,11 @@
-const Pagination = ({pagination}) => {
-  return (
-      <div className="pagination">{pagination.totalPages}</div>
-  )
-}
+import { PropTypes } from "prop-types";
 
-export default Pagination
+const Pagination = ({ pagination }) => {
+  return <div className="pagination">{pagination.totalPages}</div>;
+};
+
+Pagination.propTypes = {
+  pagination: PropTypes.object,
+};
+
+export default Pagination;
