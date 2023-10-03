@@ -10,12 +10,34 @@
     border: 1px solid blue;
   }
 
-  .books {
-    border: 1px solid blue;
-    
-    .book {
-      border: 1px solid green;
-      
+  .books-container {
+    .head {
+      border: 1px solid blue;
+
+      .headers {
+        display: flex;
+        gap: 20px;
+
+        >p {
+          width: 100px;
+        }
+      }
+    }
+
+    .books {
+         
+      .book {
+        border: 1px solid green;
+        display: flex;
+        gap: 20px;
+        
+        > p {
+          width: 100px;
+          overflow: hidden;
+          text-wrap: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
     }
   }
 }
