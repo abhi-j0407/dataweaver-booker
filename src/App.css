@@ -22,6 +22,24 @@
           width: 100px;
         }
       }
+
+      > form {
+        display: flex;
+        gap: 20px;
+
+        .filter {
+          width: 100px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-inline: 5px;
+          border: 1px solid lightblue;
+
+          > input {
+            width: 50%;
+          }
+        }
+      }
     }
 
     .books {

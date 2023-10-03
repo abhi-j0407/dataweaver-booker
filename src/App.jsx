@@ -4,9 +4,11 @@ import Books from "./components/Books/Books";
 import SearchBar from "./components/SearchBar";
 import { useEffect } from "react";
 import { useState } from "react";
+import Pagination from "./components/Pagination";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const [pagination, setPagination] = useState({});
 
   useEffect(() => {
     fetchBooks();
@@ -19,6 +21,7 @@ function App() {
       );
       console.log("Data: ", data);
       setBooks(data.data);
+      setPagination(data.pagination);
     } catch (err) {
       console.log("Error: ", err);
     }
@@ -30,6 +33,7 @@ function App() {
         <h1>BOOKER</h1>
         <SearchBar getBooks={fetchBooks} />
         <Books books={books} />
+        <Pagination pagination={pagination} />
       </div>
     </main>
   );
