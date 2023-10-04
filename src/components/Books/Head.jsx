@@ -19,7 +19,7 @@ const Head = ({ screens, setScreens }) => {
       <form>
         {Object.keys(screens).map((screen) => (
           <div className="filter" key={screen}>
-            <input type="text" name={screen} onChange={updateScreens}/>
+            <input type="text" name={screen} onChange={updateScreens} placeholder="Fiter..."/>
             <p>||</p>
           </div>
         ))}

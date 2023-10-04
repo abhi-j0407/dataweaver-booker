@@ -34,3 +34,15 @@ h5,
 h6 {
   overflow-wrap: break-word;
 }
+
+:root {
+  --biege: #FFF5E0;
+  --violet: #3a3845;
+}
+
+body {
+  background-color: var(--biege);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -40,20 +40,22 @@ function App() {
   }, [fetchBooks]);
 
   const handleUpdate = (id) => {
-    setUpdate(books.find(book => book.id === id))
-    setShowEdit(true)
-  }
+    setUpdate(books.find((book) => book.id === id));
+    setShowEdit(true);
+  };
 
   return (
     <main>
       <div className="container">
         <h1>BOOKER</h1>
-        <div>
+        <div className="searchline">
           <SearchBar getBooks={fetchBooks} />
           <button onClick={() => setShowAdd(true)}>Add</button>
         </div>
-        <Head screens={screens} setScreens={setScreens} />
-        <Books books={books} setShow={handleUpdate} />
+        <div className="table">
+          <Head screens={screens} setScreens={setScreens} />
+          <Books books={books} setShow={handleUpdate} />
+        </div>
         <Pagination pagination={pagination} />
         {showAdd && <New setShow={setShowAdd} />}
         {showEdit && <Update setShow={setShowEdit} update={update} />}
