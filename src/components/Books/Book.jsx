@@ -1,6 +1,6 @@
 import { PropTypes } from "prop-types";
 
-const Book = ({ book }) => {
+const Book = ({ book, setShow }) => {
   return (
       <div className="book">
           <p><a href={book.link}>{book.title || "N/A"}</a></p>
@@ -8,13 +8,15 @@ const Book = ({ book }) => {
           <p>{book.year || "N/A"}</p>
           <p>{book.pages || "N/A"}</p>
           <p>{book.language || "N/A"}</p>
-          <p>{book.country || "N/A"}</p>
+      <p>{book.country || "N/A"}</p>
+      <button onClick={() => setShow(book.id)}>Edit</button>
     </div>
   )
 }
 
 Book.propTypes = {
-    book: PropTypes.object
+  book: PropTypes.object,
+  setShow: PropTypes.func
 }
 
 export default Book;

@@ -1,29 +1,14 @@
 import { PropTypes } from "prop-types";
 import Book from "./Book";
-import Head from "./Head";
-import { useEffect, useState } from "react";
 
-const Books = ({ books }) => {
-
-  const [filters, setFilters] = useState({
-    title: '',
-    author: '',
-    year: 0,
-    pages: 0,
-    language: '',
-    country: ''
-  });
-
-  useEffect(() => {
-    console.table(filters);
-  }, [filters])
+const Books = ({ books, setShow }) => {
 
   return (
     <section className="books-container">
-      <Head />
+      
       <div className="books">
         {books.map((book) => (
-          <Book key={book.id} book={book} />
+          <Book key={book.id} book={book} setShow={setShow} />
         ))}
       </div>
     </section>
@@ -32,6 +17,7 @@ const Books = ({ books }) => {
 
 Books.propTypes = {
   books: PropTypes.arrayOf(PropTypes.object),
+  setShow: PropTypes.func
 };
 
 export default Books;
