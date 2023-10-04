@@ -58,11 +58,11 @@
       border-radius: 50px;
       border: 2px solid var(--biege);
 
-          &:hover {
-            background-color: var(--biege);
-            color: var(--violet);
-            border: 2px solid var(--violet);
-          }
+      &:hover {
+        background-color: var(--biege);
+        color: var(--violet);
+        border: 2px solid var(--violet);
+      }
     }
   }
 
@@ -101,7 +101,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          padding-inline: 0px 10px;
+          padding-inline: 0px 15px;
           border: none;
           background-color: var(--biege);
           color: var(--violet);
@@ -115,6 +115,10 @@
             outline: none;
             padding: 5px 15px;
             border-radius: inherit;
+          }
+
+          > p {
+            cursor: pointer;
           }
         }
       }
@@ -154,11 +158,11 @@
             font-size: 0.75rem;
             border: 2px solid var(--violet);
 
-          &:hover {
-            background-color: var(--violet);
-            color: var(--biege);
-            border: 2px solid var(--biege);
-          }
+            &:hover {
+              background-color: var(--violet);
+              color: var(--biege);
+              border: 2px solid var(--biege);
+            }
           }
         }
       }
@@ -356,8 +360,8 @@
         padding: 30px 20px;
         font-size: 0.8rem;
 
-        >div {
-          >h3 {
+        > div {
+          > h3 {
             font-size: 1rem;
           }
         }

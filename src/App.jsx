@@ -44,6 +44,22 @@ function App() {
     setShowEdit(true);
   };
 
+  const sortTable = (sortBy, order) => {
+    const sorted = order
+      ? []
+          .concat(books)
+          .sort((a, b) =>
+            a[sortBy].toLowerCase() > b[sortBy].toLowerCase() ? 1 : -1
+          )
+      : []
+          .concat(books)
+          .sort((a, b) =>
+            a[sortBy].toLowerCase() < b[sortBy].toLowerCase() ? 1 : -1
+          );
+
+    setBooks(sorted);
+  };
+
   return (
     <main>
       <div className="container">
@@ -53,7 +69,11 @@ function App() {
           <button onClick={() => setShowAdd(true)}>Add</button>
         </div>
         <div className="table">
-          <Head screens={screens} setScreens={setScreens} />
+          <Head
+            screens={screens}
+            setScreens={setScreens}
+            sortTable={sortTable}
+          />
           <Books books={books} setShow={handleUpdate} />
         </div>
         <Pagination pagination={pagination} />
