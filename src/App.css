@@ -56,6 +56,13 @@
       height: 100%;
       width: 100px;
       border-radius: 50px;
+      border: 2px solid var(--biege);
+
+          &:hover {
+            background-color: var(--biege);
+            color: var(--violet);
+            border: 2px solid var(--violet);
+          }
     }
   }
 
@@ -139,11 +146,19 @@
           > button {
             position: absolute;
             right: -50px;
+            bottom: 6.5px;
             background-color: var(--biege);
             border: none;
             border-radius: 50px;
             padding: 5px 10px;
             font-size: 0.75rem;
+            border: 2px solid var(--violet);
+
+          &:hover {
+            background-color: var(--violet);
+            color: var(--biege);
+            border: 2px solid var(--biege);
+          }
           }
         }
       }
@@ -151,7 +166,7 @@
   }
 
   .newModal {
-    background-color: antiquewhite;
+    background-color: rgba(0, 0, 0, 0.75);
     position: fixed;
     top: 0;
     left: 0;
@@ -162,10 +177,87 @@
     align-items: flex-start;
 
     > div {
-      background-color: aquamarine;
-      min-width: 500px;
-      aspect-ratio: 1;
+      background-color: var(--violet);
+      color: var(--biege);
+      min-width: 300px;
+      width: clamp(300px, 40vw, 500px);
       margin-top: 15vh;
+      padding: 60px 40px;
+      border: 1px solid var(--biege);
+
+      > div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+
+        > h3 {
+          font-size: 1.5rem;
+        }
+
+        > button {
+          min-width: 100px;
+          height: 30px;
+          background-color: transparent;
+          color: var(--biege);
+          border: 2px solid var(--biege);
+          border-radius: 50px;
+
+          &:hover {
+            background-color: var(--biege);
+            color: var(--violet);
+          }
+        }
+      }
+
+      > form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+
+        > div {
+          border: 2px solid var(--biege);
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 40px;
+          align-items: center;
+          border-radius: 50px;
+          padding-inline: 10px 5px;
+
+          > label {
+            width: 40%;
+            min-width: 100px;
+          }
+
+          > input {
+            width: 60%;
+            border: none;
+            background-color: var(--biege);
+            border-radius: 45px;
+            height: 75%;
+            padding: 10px 15px;
+            outline: none;
+          }
+        }
+
+        > button {
+          background-color: var(--biege);
+          border: none;
+          border-radius: 50px;
+          padding-block: 5px;
+          min-width: 100px;
+          margin: auto;
+          border: 2px solid var(--violet);
+
+          &:hover {
+            background-color: var(--violet);
+            color: var(--biege);
+            border: 2px solid var(--biege);
+          }
+        }
+      }
     }
   }
 }
@@ -199,8 +291,7 @@
         width: 100%;
         max-width: 400px;
         padding: 20px;
-        border-radius: 10px;
-        border: 1px solid yellow;
+        border-radius: 20px;
 
         .headers {
           flex-direction: column;
@@ -235,7 +326,6 @@
           flex-direction: column;
           gap: 10px;
           .book {
-            /* flex-direction: column; */
             flex-wrap: wrap;
             color: var(--biege);
             background-color: var(--violet);
@@ -255,6 +345,20 @@
               right: 10px;
               bottom: 10px;
             }
+          }
+        }
+      }
+    }
+
+    .newModal {
+      > div {
+        margin-top: 5vh;
+        padding: 30px 20px;
+        font-size: 0.8rem;
+
+        >div {
+          >h3 {
+            font-size: 1rem;
           }
         }
       }

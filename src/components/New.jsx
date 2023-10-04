@@ -2,7 +2,7 @@
 import axios from "axios";
 import { useState } from "react";
 
-const New = ({setShow}) => {
+const New = ({ setShow }) => {
   const [book, setBook] = useState({
     title: "",
     author: "",
@@ -43,20 +43,23 @@ const New = ({setShow}) => {
         "http://68.178.162.203:8080/application-test-v1.1/books",
         book
       );
-        console.log("RESP: ", res);
-        alert("Added successfully")
-        setShow(false);
+      console.log("RESP: ", res);
+      alert("Added successfully");
+      setShow(false);
     } catch (err) {
       console.error(err);
     } finally {
-        setAdding(false);
+      setAdding(false);
     }
   };
 
   return (
     <section className="newModal">
       <div>
-        <h3>Add New Book</h3>
+        <div>
+          <h3>Add New Book</h3>
+          <button onClick={() => setShow(false)}>Close</button>
+        </div>
         <form onSubmit={handleSubmit}>
           <div>
             <label>Title:</label>

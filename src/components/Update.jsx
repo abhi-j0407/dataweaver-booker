@@ -51,7 +51,7 @@ const Update = ({ setShow, update = {} }) => {
       <div>
         <div>
           <h3>Update Book</h3>
-          <button onClick={() => setShow(false)}>X</button>
+          <button onClick={() => setShow(false)}>Close</button>
         </div>
         <form onSubmit={handleSubmit}>
           <div>
