@@ -12,14 +12,6 @@ function App() {
   const [books, setBooks] = useState([]);
   const initialBooks = useRef(null);
   const [pagination, setPagination] = useState({});
-  const [screens, setScreens] = useState({
-    title: "",
-    author: "",
-    year: "",
-    pages: "",
-    language: "",
-    country: "",
-  });
   const [showAdd, setShowAdd] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
   const [update, setUpdate] = useState({});
@@ -79,13 +71,11 @@ function App() {
       <div className="container">
         <h1>BOOKER</h1>
         <div className="searchline">
-          <SearchBar getBooks={fetchBooks} filterTable={filterTable} />
+          <SearchBar filterTable={filterTable} />
           <button onClick={() => setShowAdd(true)}>Add</button>
         </div>
         <div className="table">
           <Head
-            screens={screens}
-            setScreens={setScreens}
             sortTable={sortTable}
             filterTable={filterTable}
           />

@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { PropTypes } from "prop-types";
 
 const Pagination = ({ pagination, setPagination, books }) =>
@@ -48,6 +47,7 @@ const Pagination = ({ pagination, setPagination, books }) =>
 Pagination.propTypes = {
   pagination: PropTypes.object,
   setPagination: PropTypes.func,
+  books: PropTypes.array,
 };
 
 export default Pagination;

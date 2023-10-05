@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import axios from "axios";
 import { useState } from "react";
+import { PropTypes } from "prop-types";
 
 const Update = ({ setShow, update = {} }) => {
   const [book, setBook] = useState(update);
@@ -108,6 +108,11 @@ const Update = ({ setShow, update = {} }) => {
       </div>
     </section>
   );
+};
+
+Update.propTypes = {
+  setShow: PropTypes.func,
+  update: PropTypes.object,
 };
 
 export default Update;

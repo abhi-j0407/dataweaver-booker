@@ -1,17 +1,21 @@
-const SearchBar = () => {
+import { PropTypes } from "prop-types";
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Submitted');
-  }
-
+const SearchBar = ({ filterTable }) => {
   return (
     <div className="searchbar">
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Search..." />
+      <form>
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={(e) => filterTable("title", e.target.value)}
+        />
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default SearchBar
+SearchBar.propTypes = {
+  filterTable: PropTypes.func,
+};
+
+export default SearchBar;
