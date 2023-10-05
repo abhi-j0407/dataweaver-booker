@@ -2,11 +2,11 @@
 
 ![Screenshot](./public/screenshots/Screenshot%2001.jpg)
 
-![Screenshot](./public/screenshots/Screenshot%2002.jpg)
-
 ![Screenshot](./public/screenshots/Screenshot%2003.jpg)
 
 ![Screenshot](./public/screenshots/Screenshot%2004.jpg)
+
+![Screenshot](./public/screenshots/Screenshot%2002.jpg)
 
 ![Screenshot](./public/screenshots/Screenshot%2005.jpg)
 
@@ -26,3 +26,10 @@
 # Deployment
 
 The application has been deployed on [Vercel](https://dataweaver-booker-f73f2vbsn-abhi-j0407.vercel.app/), but since Vercel provides a HTTPS domain, and the API call is HTTP, the call fails. This will work as and when the API uses HTTPS. 
+
+# Improvements
+
+There's always a scope of improvement, and due to the limited time, not all could be implemented as of yet.
+
+- Features like filtering do not support multiple fields filtering simultaneously, current code exchanges that ability to be able to update filtered content on field data removal.
+- The application is fully responsive for small mobile screens, tablets, desktops, to high resolution monitors. However, this was achieved via generalised design pattern, and could be improved upon, using multiple media queries and designs for indiviual screen sizes.
