@@ -31,5 +31,6 @@ The application has been deployed on [Vercel](https://dataweaver-booker-f73f2vbs
 
 There's always a scope of improvement, and due to the limited time, not all could be implemented as of yet.
 
-- Features like filtering do not support multiple fields filtering simultaneously, current code exchanges that ability to be able to update filtered content on field data removal.
+- Filtering does not support multiple fields filtering simultaneously, current code exchanges that ability with the ability to update filtered content on field data removal.
 - The application is fully responsive for small mobile screens, tablets, desktops, to high resolution monitors. However, this was achieved via generalised design pattern, and could be improved upon, using multiple media queries and designs for indiviual screen sizes.
+- Some reused code exists, that can be generalised and replaced with a singular component instead of two.
