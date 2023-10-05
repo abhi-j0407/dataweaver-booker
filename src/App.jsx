@@ -2,7 +2,7 @@ import axios from "axios";
 import "./App.css";
 import Books from "./components/Books/Books";
 import SearchBar from "./components/SearchBar";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Pagination from "./components/Pagination";
 import Head from "./components/Books/Head";
 import New from "./components/New";
@@ -10,6 +10,7 @@ import Update from "./components/Update";
 
 function App() {
   const [books, setBooks] = useState([]);
+  const initialBooks = useRef(null);
   const [pagination, setPagination] = useState({});
   const [screens, setScreens] = useState({
     title: "",
@@ -30,7 +31,7 @@ function App() {
       );
       setBooks(data.data);
       setPagination(data.pagination);
-      console.log(data.pagination)
+      initialBooks.current = data.data;
     } catch (err) {
       console.log("Error: ", err);
     }
@@ -61,12 +62,24 @@ function App() {
     setBooks(sorted);
   };
 
+  const filterTable = (field, value) => {
+    if (value === "") setBooks(initialBooks.current);
+    else {
+      const copy = initialBooks.current;
+      const filtered = copy.filter((book) =>
+        book[field].toLowerCase().includes(value.toLowerCase())
+      );
+
+      setBooks(filtered);
+    }
+  };
+
   return (
     <main>
       <div className="container">
         <h1>BOOKER</h1>
         <div className="searchline">
-          <SearchBar getBooks={fetchBooks} />
+          <SearchBar getBooks={fetchBooks} filterTable={filterTable} />
           <button onClick={() => setShowAdd(true)}>Add</button>
         </div>
         <div className="table">
@@ -74,10 +87,11 @@ function App() {
             screens={screens}
             setScreens={setScreens}
             sortTable={sortTable}
+            filterTable={filterTable}
           />
           <Books books={books} setShow={handleUpdate} />
         </div>
-        <Pagination pagination={pagination} setPagination={setPagination} />
+        <Pagination pagination={pagination} setPagination={setPagination} books={books} />
         {showAdd && <New setShow={setShowAdd} />}
         {showEdit && <Update setShow={setShowEdit} update={update} />}
       </div>

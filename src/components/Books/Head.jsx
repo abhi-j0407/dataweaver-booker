@@ -3,15 +3,15 @@ import { useState } from "react";
 /* eslint-disable react/prop-types */
 const headers = ["Title", "Author", "Year", "Pages", "Language", "Country"];
 
-const Head = ({ screens, setScreens, sortTable }) => {
+const Head = ({ screens, setScreens, sortTable, filterTable }) => {
   const [order, setOrder] = useState(false);
 
-  const updateScreens = (e) => {
-    setScreens((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
+  // const updateScreens = (e) => {
+  //   setScreens((prev) => ({
+  //     ...prev,
+  //     [e.target.name]: e.target.value,
+  //   }));
+  // };
 
   const handleSort = (screen) => {
     sortTable(screen, order);
@@ -31,7 +31,7 @@ const Head = ({ screens, setScreens, sortTable }) => {
             <input
               type="text"
               name={screen}
-              onChange={updateScreens}
+              onChange={(e) => filterTable(e.target.name, e.target.value)}
               placeholder="Fiter..."
             />
             <p onClick={() => handleSort(screen)}>&#8597;</p>

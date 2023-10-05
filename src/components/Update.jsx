@@ -6,21 +6,6 @@ const Update = ({ setShow, update = {} }) => {
   const [book, setBook] = useState(update);
   const [adding, setAdding] = useState(false);
 
-  //   const validate = () => {
-  //     let errors = {};
-  //       if (
-  //           book.title === "" ||
-  //           book.author === "" ||
-  //           book.year <= 0 ||
-  //           book.pages <= 0 ||
-  //           book.language === "" ||
-  //           book.country === ""
-  //       )
-  //           errors.empty = true;
-  //       else errors.empty = false;
-  //     setErrors(errors);
-  //   };
-
   const handleChange = (e) => {
     setBook((book) => ({
       ...book,
@@ -120,7 +105,6 @@ const Update = ({ setShow, update = {} }) => {
             Update
           </button>
         </form>
-        {/* <p>{ errors.empty && "All fields needed" }</p> */}
       </div>
     </section>
   );

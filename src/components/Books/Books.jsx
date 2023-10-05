@@ -10,6 +10,9 @@ const Books = ({ books, setShow }) => {
         {books.map((book) => (
           <Book key={book.id} book={book} setShow={setShow} />
         ))}
+        {
+          books.length === 0 && <p>No books available</p>
+        }
       </div>
     </section>
   );
