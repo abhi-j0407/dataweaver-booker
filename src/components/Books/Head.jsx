@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { PropTypes } from "prop-types";
 
+// Table heads based on our preference, excluding ID, as well as filters and sorts
 const headers = ["Title", "Author", "Year", "Pages", "Language", "Country"];
 
 const Head = ({ sortTable, filterTable }) => {

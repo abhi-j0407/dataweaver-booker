@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { PropTypes } from "prop-types";
 
+// Modal for adding a new book to DB
 const New = ({ setShow }) => {
   const [book, setBook] = useState({
     title: "",

@@ -1,21 +1,17 @@
-import axios from "axios";
 import "./App.css";
-import Books from "./components/Books/Books";
-import SearchBar from "./components/SearchBar";
 import { useCallback, useEffect, useRef, useState } from "react";
-import Pagination from "./components/Pagination";
-import Head from "./components/Books/Head";
-import New from "./components/New";
-import Update from "./components/Update";
+import axios from "axios";
+import { Books, Head, SearchBar, Pagination, New, Update } from './components'
 
 function App() {
   const [books, setBooks] = useState([]);
-  const initialBooks = useRef(null);
   const [pagination, setPagination] = useState({});
   const [showAdd, setShowAdd] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
   const [update, setUpdate] = useState({});
+  const initialBooks = useRef(null);
 
+  // Fetching books from API
   const fetchBooks = useCallback(async () => {
     try {
       const { data } = await axios.get(
@@ -38,6 +34,7 @@ function App() {
     setShowEdit(true);
   };
 
+  // Sorting results by selected field and order
   const sortTable = (sortBy, order) => {
     const sorted = order
       ? []
@@ -54,6 +51,7 @@ function App() {
     setBooks(sorted);
   };
 
+  // Filtering results based on field
   const filterTable = (field, value) => {
     if (value === "") setBooks(initialBooks.current);
     else {
@@ -75,13 +73,14 @@ function App() {
           <button onClick={() => setShowAdd(true)}>Add</button>
         </div>
         <div className="table">
-          <Head
-            sortTable={sortTable}
-            filterTable={filterTable}
-          />
+          <Head sortTable={sortTable} filterTable={filterTable} />
           <Books books={books} setShow={handleUpdate} />
         </div>
-        <Pagination pagination={pagination} setPagination={setPagination} books={books} />
+        <Pagination
+          pagination={pagination}
+          setPagination={setPagination}
+          books={books}
+        />
         {showAdd && <New setShow={setShowAdd} />}
         {showEdit && <Update setShow={setShowEdit} update={update} />}
       </div>

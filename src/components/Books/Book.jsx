@@ -1,9 +1,11 @@
 import { PropTypes } from "prop-types";
 import { useEffect, useState } from "react";
 
+// Row element for indiviual books, changes to a card on tablets and mobiles
 const Book = ({ book, setShow }) => {
   const [viewWidth, setViewWidth] = useState(window.innerWidth);
 
+  // Detect window resize and update row to card
   useEffect(() => {
     const handleResize = () => setViewWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { PropTypes } from "prop-types";
 
+// Modal for updating existing book in the DB
 const Update = ({ setShow, update = {} }) => {
   const [book, setBook] = useState(update);
   const [adding, setAdding] = useState(false);
