@@ -22,3 +22,7 @@
 - Clone repository.
 - Change directory to project folder, and run 'npm install' in terminal to install the required dependencies.
 - To run project, run command 'npm run dev'.
+
+# Deployment
+
+The application has been deployed on [Vercel](https://dataweaver-booker-f73f2vbsn-abhi-j0407.vercel.app/), but since Vercel provides a HTTPS domain, and the API call is HTTP, the call fails. This will work as and when the API uses HTTPS. 
