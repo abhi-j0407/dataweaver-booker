@@ -14,7 +14,6 @@ const Head = ({ screens, setScreens, sortTable }) => {
   };
 
   const handleSort = (screen) => {
-    console.log("Screen: ", screen);
     sortTable(screen, order);
     setOrder(!order);
   };

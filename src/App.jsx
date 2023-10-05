@@ -30,6 +30,7 @@ function App() {
       );
       setBooks(data.data);
       setPagination(data.pagination);
+      console.log(data.pagination)
     } catch (err) {
       console.log("Error: ", err);
     }
@@ -76,7 +77,7 @@ function App() {
           />
           <Books books={books} setShow={handleUpdate} />
         </div>
-        <Pagination pagination={pagination} />
+        <Pagination pagination={pagination} setPagination={setPagination} />
         {showAdd && <New setShow={setShowAdd} />}
         {showEdit && <Update setShow={setShowEdit} update={update} />}
       </div>
